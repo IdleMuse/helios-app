@@ -20,6 +20,8 @@ class CreateShipsTable extends Migration
 
 
         });
+
+        DB::table('assettypes')->insert(['key'=>"ship"]);
     }
 
     /**
