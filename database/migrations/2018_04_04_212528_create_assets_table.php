@@ -16,6 +16,15 @@ class CreateAssetsTable extends Migration
         Schema::create('assets', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
+
+            $table->string('asset_type');
+            $table->foreign('asset_type')->references('key')->on('assettypes')->onUpdate('cascade')->onDelete('restrict');
+            $table->unsignedInteger('asset_id');
+
+            $table->string('name');
+
+            $table->unsignedInteger('faction_id');
+            $table->foreign('faction_id')->references('id')->on('factions')->onUpdate('cascade')->onDelete('restrict');
         });
     }
 

@@ -18,6 +18,7 @@ class CreateFactionsTable extends Migration
             $table->timestamps();
 
             $table->string('name')->unique();
+            $table->text('description')->nullable();
         });
     }
 

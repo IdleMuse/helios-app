@@ -18,6 +18,9 @@ class CreateCharactersTable extends Migration
             $table->timestamps();
 
             $table->string('name')->unique();
+
+            $table->unsignedInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade')->onDelete('set null');
         });
     }
 
